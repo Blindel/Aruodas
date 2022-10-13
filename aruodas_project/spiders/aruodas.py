@@ -1,4 +1,3 @@
-from asyncio import coroutines
 from email import header
 from importlib.resources import path
 from queue import Full
@@ -20,21 +19,24 @@ class AruodasSpider(scrapy.Spider):
                 "playwright_page_methods": [
                     PageMethod("wait_for_selector", "button#onetrust-accept-btn-handler"),
                     PageMethod("click", "button#onetrust-accept-btn-handler"),
+                    PageMethod("click", "span#display_text_obj"),
+                    PageMethod("click", "label.dropDownLabel[for=input_obj_2]"),
+                    PageMethod("click", "span#display_text_FRegion"),
+                    PageMethod("click", "label.dropDownLabel[for=input_FRegion_461]"),
+
                 ]
             }
             )
 
     async def parse(self, response):
         page = response.meta["playwright_page"]
-
         
         html_body = await page.inner_html("body")
         await page.close()
         
         body = Selector(text=html_body)
         # yield {
-        #     '//*[@id="onetrust-banner-sdk"]': response.xpath("//*[@id='onetrust-banner-sdk']/text()").getall(),
-        #     "all_buttons" : response.xpath('//button/text()').getall()
+            
         # }
          
     
