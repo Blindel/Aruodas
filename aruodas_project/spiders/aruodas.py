@@ -17,13 +17,25 @@ class AruodasSpider(scrapy.Spider):
                "playwright": True,
                 "playwright_include_page": True,
                 "playwright_page_methods": [
+                    #accepts conditions
                     PageMethod("wait_for_selector", "button#onetrust-accept-btn-handler"),
                     PageMethod("click", "button#onetrust-accept-btn-handler"),
+                    #Flats
                     PageMethod("click", "span#display_text_obj"),
-                    PageMethod("click", "label.dropDownLabel[for=input_obj_2]"),
+                    PageMethod("click", "label.dropDownLabel[for=input_obj_1]"),
+                    #region - Vilnius
                     PageMethod("click", "span#display_text_FRegion"),
                     PageMethod("click", "label.dropDownLabel[for=input_FRegion_461]"),
-
+                    #room nr
+                    PageMethod("click", "div#display_FRoomNum"),
+                    PageMethod("fill", "input#input_FRoomNumMin", "1"),
+                    PageMethod("fill", "input#input_FRoomNumMax", "7"),
+                    
+                    PageMethod("screenshot", path="before.png"),
+                    PageMethod("wait_for_timeout", 2000),
+                    PageMethod("click", "input#buttonSearchForm[type=submit]"),
+                    #PageMethod("wait_for_selector", "domcontentloaded"),
+                    PageMethod("screenshot", path="after.png")
                 ]
             }
             )
