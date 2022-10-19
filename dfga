@@ -1,0 +1,49 @@
+[33mcommit 9aebd7691f619afdab42d9651b1c686dcab778c8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: b287fff 5c5e3e7
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Tue Oct 18 09:47:57 2022 +0300
+
+    trying to sort out the mess
+
+[33mcommit b287fff840196d764c54dfc20f5b07318be81a3b[m
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Tue Oct 18 08:22:34 2022 +0300
+
+    god dammit
+
+[33mcommit 5c5e3e70751992e3ccbf85b9b14ff62ccc21699f[m
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Mon Oct 17 07:57:58 2022 +0300
+
+    added some page methods and updated requirements file
+
+[33mcommit 3441d74d386122bc5aee04a15af78e7a974e874c[m
+Merge: 48f17f7 a6e9858
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Thu Oct 13 18:51:34 2022 +0300
+
+    the heck difficult commit
+
+[33mcommit 48f17f73baf5eef314575234b634fc58a946ac8a[m
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Thu Oct 13 18:26:35 2022 +0300
+
+    some more pageMethods from other workplace
+
+[33mcommit a6e9858b7e20d5947ef38337bce8b67d61ceb491[m
+Author: Blindel <darius.kuizinass@gmail.com>
+Date:   Thu Oct 13 18:06:42 2022 +0300
+
+    modified page method list
+
+[33mcommit c173e272a162d253e88fb226eb61117edf73a4a4[m
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Tue Sep 27 20:44:55 2022 +0300
+
+    created requirements.txt
+
+[33mcommit 67d0428497b21cd4cb3ee89e0fffd57fdcdda7e0[m
+Author: Darius <darius.kuizinass@gmail.com>
+Date:   Tue Sep 27 08:44:56 2022 +0300
+
+    Imported the very basics
