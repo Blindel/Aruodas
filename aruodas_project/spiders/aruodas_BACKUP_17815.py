@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-from asyncio import coroutines
-from email import header
-from importlib.resources import path
-=======
 from email import header
 from importlib.resources import path
 from multiprocessing.sharedctypes import Value
->>>>>>> parent of b287fff... god dammit
 from queue import Full
 import scrapy
 from scrapy.selector import Selector
@@ -27,8 +21,6 @@ class AruodasSpider(scrapy.Spider):
                     PageMethod("wait_for_selector", "button#onetrust-accept-btn-handler"),
                     PageMethod("click", "button#onetrust-accept-btn-handler"),
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
                     PageMethod("click", "#quickValue_FRoomNum_2"),
                     PageMethod("click", "#display_text_obj"),
                     PageMethod("screenshot", path="view.png"),
@@ -39,7 +31,6 @@ class AruodasSpider(scrapy.Spider):
                     PageMethod("click", "label.dropDownLabel[for=input_FRegion_461]"),
 
 >>>>>>> a6e9858b7e20d5947ef38337bce8b67d61ceb491
->>>>>>> parent of b287fff... god dammit
                 ]
             }
             )
@@ -47,25 +38,14 @@ class AruodasSpider(scrapy.Spider):
     async def parse(self, response):
         page = response.meta["playwright_page"]
 <<<<<<< HEAD
-
-        
-=======
-<<<<<<< HEAD
     
 =======
         
 >>>>>>> a6e9858b7e20d5947ef38337bce8b67d61ceb491
->>>>>>> parent of b287fff... god dammit
         html_body = await page.inner_html("body")
         await page.close()
         
         body = Selector(text=html_body)
-<<<<<<< HEAD
-        # yield {
-        #     '//*[@id="onetrust-banner-sdk"]': response.xpath("//*[@id='onetrust-banner-sdk']/text()").getall(),
-        #     "all_buttons" : response.xpath('//button/text()').getall()
-        # }
-=======
 <<<<<<< HEAD
         yield {
         #     "div.search-form-content" : response.css("body div.main.filter-form div.header-strip div.header-filter-strip div.header-filter form div.filter-col div.search-form-content").get(),
@@ -76,6 +56,5 @@ class AruodasSpider(scrapy.Spider):
             
         # }
 >>>>>>> a6e9858b7e20d5947ef38337bce8b67d61ceb491
->>>>>>> parent of b287fff... god dammit
          
     
