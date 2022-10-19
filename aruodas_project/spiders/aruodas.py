@@ -18,17 +18,30 @@ class AruodasSpider(scrapy.Spider):
                "playwright": True,
                 "playwright_include_page": True,
                 "playwright_page_methods": [
+
+                    #accepts cookies
                     PageMethod("wait_for_selector", "button#onetrust-accept-btn-handler"),
                     PageMethod("click", "button#onetrust-accept-btn-handler"),
 
-                    PageMethod("click", "#quickValue_FRoomNum_2"),
-                    PageMethod("click", "#display_text_obj"),
-                    PageMethod("screenshot", path="view.png"),
-
+                    #Object type
                     PageMethod("click", "span#display_text_obj"),
-                    PageMethod("click", "label.dropDownLabel[for=input_obj_2]"),
+                    PageMethod("click", "label.dropDownLabel[for=input_obj_1]"),
+
+                    #Selects region
                     PageMethod("click", "span#display_text_FRegion"),
                     PageMethod("click", "label.dropDownLabel[for=input_FRegion_461]"),
+
+                    #range of rooms
+                    PageMethod("click", "#display_FRoomNum span.icon-double-arrow-right-tiny"),
+                    PageMethod("fill", "input#input_FRoomNumMin", "1"),
+                    PageMethod("fill", "input#input_FRoomNumMax", "7"),
+                    PageMethod("screenshot", path="aruodas1.png"),
+
+                    PageMethod("mouse", "move", x ="10", y = "10"),
+                    # PageMethod("mouse", "move", 10, 100),
+                    # PageMethod("mouse", "move", 200, 5),
+                    # PageMethod("click", "input#buttonSearchForm"),
+                    PageMethod("screenshot", path="aruodas2.png")
                 ]
             }
             )
