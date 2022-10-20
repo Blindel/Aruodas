@@ -35,13 +35,10 @@ class AruodasSpider(scrapy.Spider):
                     PageMethod("click", "#display_FRoomNum span.icon-double-arrow-right-tiny"),
                     PageMethod("fill", "input#input_FRoomNumMin", "1"),
                     PageMethod("fill", "input#input_FRoomNumMax", "7"),
-                    PageMethod("screenshot", path="aruodas1.png"),
 
-                    PageMethod("mouse", "move", x ="10", y = "10"),
-                    # PageMethod("mouse", "move", 10, 100),
-                    # PageMethod("mouse", "move", 200, 5),
+                    # PageMethod("wait_for_selector", "fieldset.recomended-boxes:last-child > img.box-img")
                     # PageMethod("click", "input#buttonSearchForm"),
-                    PageMethod("screenshot", path="aruodas2.png")
+                    # PageMethod("screenshot", path="aruodas2.png", full_page=True),
                 ]
             }
             )
@@ -50,6 +47,10 @@ class AruodasSpider(scrapy.Spider):
         page = response.meta["playwright_page"]
 
         html_body = await page.inner_html("body")
+        await page.mouse.move(10, 10)
+        await page.mouse.move(15, 100)
+        await page.click("input#buttonSearchForm")
+
         await page.close()
         
         body = Selector(text=html_body)
