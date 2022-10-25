@@ -51,6 +51,8 @@ from aruodas_project import utils
 
 DEFAULT_REQUEST_HEADERS = utils.get_random_header()
 
+ROTATING_PROXY_LIST_PATH = 'proxies.txt'
+
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
@@ -60,8 +62,11 @@ DEFAULT_REQUEST_HEADERS = utils.get_random_header()
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 800,
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 700,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 543,
+    
 }
 
 # Enable or disable extensions
