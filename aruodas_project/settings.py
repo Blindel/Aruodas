@@ -14,8 +14,7 @@ NEWSPIDER_MODULE = 'aruodas_project.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# from aruodas_project.utils import get_random_agent
-# USER_AGENT = get_random_agent
+
 
 #scrapy-playwright
 
@@ -27,7 +26,7 @@ DOWNLOAD_HANDLERS = {
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -51,7 +50,10 @@ from aruodas_project import utils
 
 DEFAULT_REQUEST_HEADERS = utils.get_random_header()
 
-ROTATING_PROXY_LIST_PATH = 'proxies.txt'
+
+ROTATED_PROXY_ENABLED = True
+PROXY_STORAGE = 'scrapy_rotated_proxy.extensions.file_storage.FileProxyStorage'
+ROTATING_PROXY_LIST_PATH = 'home/darius/Desktop/python/scrapy_playwright/Aruodas/proxies.txt'
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -62,8 +64,10 @@ ROTATING_PROXY_LIST_PATH = 'proxies.txt'
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'rotating_proxies.middlewares.RotatingProxyMiddleware': 800,
-    'rotating_proxies.middlewares.BanDetectionMiddleware': 700,
+    # 'rotating_proxies.middlewares.RotatingProxyMiddleware': 800,
+    # 'rotating_proxies.middlewares.BanDetectionMiddleware': 700,
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
+    'scrapy_rotated_proxy.downloadmiddlewares.proxy.RotatedProxyMiddleware': 750,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 543,
     

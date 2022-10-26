@@ -39,5 +39,6 @@ headers_list = [
 def get_random_header():
     random.choice(headers_list)
     
-# def get_random_agent():
-#     return random.choice(user_agent_list)
+proxies = [
+    '194.31.55.247:80',
+    '91.211.245.202:3128',]

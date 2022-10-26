@@ -13,7 +13,7 @@ class AruodasSpider(scrapy.Spider):
     name = 'aruodas'
 
     def start_requests(self):
-        yield scrapy.Request("https://www.aruodas.lt/", headers=DEFAULT_REQUEST_HEADERS,
+        yield scrapy.Request("https://www.aruodas.lt/", headers=DEFAULT_REQUEST_HEADERS, proxies=
             meta= {
                "playwright": True,
                 "playwright_include_page": True,
